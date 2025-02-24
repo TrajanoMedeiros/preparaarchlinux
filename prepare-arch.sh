@@ -43,4 +43,19 @@ instalar_flatpak "app/com.brave.Browser/x86_64/stable"
 
 instalar_com_curl "google-chrome.sh" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
-echo "Instalação concluída."
+echo "Installation is complete."
+#install postgresql and config port
+echo "Installing Postgresql"
+
+sudo pacman -S postgresql
+postgres --version
+sudo su - postgres
+initdb --locale en_US.UTF-8 -D /var/lib/postgres/data
+exit6
+sudo systemctl status postgresql
+sudo systemctl start postgresql
+sudo systemctl status postgresq1
+sudo su - postgres
+createuser --interactive
+exit
+sudo systemctl restart postgresql
